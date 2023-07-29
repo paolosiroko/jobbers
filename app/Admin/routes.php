@@ -1,9 +1,6 @@
 <?php
 
 use Illuminate\Routing\Router;
-use LotController;
-use TaskController;
-use JobberController;
 
 
 Admin::routes();
