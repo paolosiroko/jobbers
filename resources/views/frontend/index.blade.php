@@ -66,7 +66,7 @@
                                         <p></p>
                                         <p>
                                          <strong>Task Status:
-                                            @if ($task->is_complete == 0)
+                                            @if ($task->is_complete == "pending")
                                             <strong> {{$task->status}}</strong>
 
                                             @else

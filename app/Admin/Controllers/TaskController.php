@@ -86,7 +86,10 @@ class TaskController extends AdminController
             'pending' => 'pending',
             'started' => 'started'
         ]);
-        $form->switch('is_complete', __('is_complete'));
+        $form->radio('is_complete', __('is_complete'))->options([
+            'pending' => 'pending',
+            'complete' => 'complete'
+        ]);
         $form->select('lot_id', 'Lot')
                 ->options(Lot::pluck('Sr_no', 'id'));
         $form->select('user_id', 'Jobber')

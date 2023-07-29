@@ -7,16 +7,15 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 use App\Models\Roles;
-use App\Models\User;
 
-class JobberController extends AdminController
+class RoleController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'Jobbers';
+    protected $title = 'Roles';
 
     /**
      * Make a grid builder.
@@ -25,14 +24,10 @@ class JobberController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new User);
+        $grid = new Grid(new Roles);
 
         $grid->column('id', __('ID'))->sortable();
-        $grid->column('name', __('name'))->sortable();
-        $grid->column('email', __('email'))->sortable();
-        $grid->column('phone_number', __('phone_number'))->sortable();
-        $grid->column('role_id', __('Role'))->sortable();
-        $grid->column('password', __('password'))->sortable();
+        $grid->column('role', __('role'))->sortable();
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -47,14 +42,10 @@ class JobberController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(User::findOrFail($id));
+        $show = new Show(Roles::findOrFail($id));
 
-        $show->field('id', __('IDphone_number'));
-        $show->field('name', __('name'));
-        $show->field('email', __('email'));
-        $show->field('phone_number', __('phone_number'));
-        $show->field('role_id', __('Role '));
-        $show->field('password', __('password'));
+        $show->field('id', __('ID'));
+        $show->field('role', __('role'));
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
 
@@ -68,15 +59,10 @@ class JobberController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new User);
+        $form = new Form(new Roles);
 
         $form->display('id', __('ID'));
-        $form->text('name', __('name'));
-        $form->email('email', __('mail'));
-        $form->text('phone_number', __('phone_number'));
-        $form->select('role_id', 'Role')
-                ->options(Roles::pluck('role', 'id'));
-        $form->password('password', __('password'));
+        $form->text('role', __('role'));
         $form->display('created_at', __('Created At'));
         $form->display('updated_at', __('Updated At'));
 

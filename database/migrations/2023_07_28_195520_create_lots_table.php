@@ -19,10 +19,12 @@ class CreateLotsTable extends Migration
             $table->string('slug')->unique();
             $table->integer('Roll_no')->nullable();
             $table->string('Fabric_type')->nullable();
+            $table->string('Panna60')->nullable();
             $table->string('Meter')->nullable();
+            $table->string('size')->default('')->nullable();
             $table->integer('total')->nullable();
             $table->enum('status', ['pending', 'started'])->default('pending');
-            $table->boolean('is_complete')->default(false);
+            $table->enum('is_complete', ['pending', 'complete'])->default('pending');
             $table->timestamps();
         });
     }

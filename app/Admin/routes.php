@@ -16,5 +16,6 @@ Route::group([
     $router->resource('lots', LotController::class);
     $router->resource('tasks', TaskController::class);
     $router->resource('jobbers', JobberController::class);
+    $router->resource('roles', RoleController::class);
 
 });

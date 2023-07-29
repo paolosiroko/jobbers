@@ -20,7 +20,7 @@ class CreateTasksTable extends Migration
             $table->text('summary')->nullable();
             $table->longText('description')->nullable();
             $table->enum('status',['pending','started'])->default('pending');
-            $table->boolean('is_complete')->deault(false);
+            $table->enum('is_complete', ['pending', 'complete'])->default('pending');
             $table->unsignedBigInteger('lot_id');
             $table->foreign('lot_id')->references('id')->on('lots')->onDelete('cascade');
             $table->unsignedBigInteger('user_id')->nullable();
