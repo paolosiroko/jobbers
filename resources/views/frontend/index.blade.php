@@ -37,17 +37,18 @@
                 <div>
                     <h3>Lots</h3>
                     @foreach ($lots as $lot )
-                    <div class="card m-2" style="width: 40rem; ">
+                    <div class="card m-2 " style="width: 40rem; ">
+
                         <div class="card-body">
                             <p>SR no: {{$lot->Sr_no}}</p>
                             <p>roll no: {{$lot->Roll_no}}</p>
                             <p>fabric type: {{$lot->Fabric_type}}</p>
                             <p>Meter: {{$lot->Meter}}</p>
                             <p>Total: {{$lot->total}}</p>
-                            <p>status: {{$lot->status}}</p>
-                            <p>completion status:
+
+                            <p>
                                 @if ($lot->is_complete == 0)
-                                Pending
+                                <p>Lot status: {{$lot->status}}</p>
 
                                 @else
                                     Complete
@@ -62,11 +63,11 @@
                                     </div>
                                     <div class="card-body">
                                         <p><strong>Jobber : {{$task->user->name}}</strong></p>
-                                        <p><strong>Task Status: {{$task->status}}</strong></p>
+                                        <p></p>
                                         <p>
-                                         <strong>Task Completed?:
+                                         <strong>Task Status:
                                             @if ($task->is_complete == 0)
-                                            Pending
+                                            <strong> {{$task->status}}</strong>
 
                                             @else
                                                 Complete
@@ -93,10 +94,10 @@
                         <div class="card-body">
                             <p>task id: {{$task->id}}</p>
                             <p>task: {{$task->task}}</p>
-                            <p>status: {{$task->status}}</p>
-                            <p>completion status:
+
+                            <p>
                                 @if ($task->is_complete == 0)
-                                Pending
+                                <p>Task status: {{$task->status}}</p>
 
                                 @else
                                     Complete
@@ -112,13 +113,13 @@
                 <div>
                     <h3>Jobber</h3>
                     @foreach ($jobbers as $jobber )
-                    <div class="card m-2">
-                        <div class="card-body">
-                            <p>Id: {{$jobber->id}}</p>
-                            <p>name: {{$jobber->name}}</p>
-                            <p>email: {{$jobber->email}}</p>
+                        <div class="card m-2">
+                            <div class="card-body">
+                                <p>Id: {{$jobber->id}}</p>
+                                <p>name: {{$jobber->name}}</p>
+                                <p>email: {{$jobber->email}}</p>
+                            </div>
                         </div>
-                      </div>
                     @endforeach
 
                 </div>
