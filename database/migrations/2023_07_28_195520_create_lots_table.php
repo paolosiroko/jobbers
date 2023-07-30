@@ -21,7 +21,7 @@ class CreateLotsTable extends Migration
             $table->string('Fabric_type')->nullable();
             $table->string('Panna60')->nullable();
             $table->string('Meter')->nullable();
-            $table->string('size')->default('')->nullable();
+            $table->enum('size', ['26','28','30','32','34','36'])->default('26');
             $table->integer('total')->nullable();
             $table->enum('status', ['pending', 'started'])->default('pending');
             $table->enum('is_complete', ['pending', 'complete'])->default('pending');

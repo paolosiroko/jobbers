@@ -6,7 +6,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
-use App\Models\Roles;
+use App\Models\Role;
 
 class RoleController extends AdminController
 {
@@ -24,7 +24,7 @@ class RoleController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new Roles);
+        $grid = new Grid(new Role);
 
         $grid->column('id', __('ID'))->sortable();
         $grid->column('role', __('role'))->sortable();
@@ -42,7 +42,7 @@ class RoleController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(Roles::findOrFail($id));
+        $show = new Show(Role::findOrFail($id));
 
         $show->field('id', __('ID'));
         $show->field('role', __('role'));
@@ -59,7 +59,7 @@ class RoleController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new Roles);
+        $form = new Form(new Role);
 
         $form->display('id', __('ID'));
         $form->text('role', __('role'));

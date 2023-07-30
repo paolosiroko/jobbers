@@ -43,7 +43,9 @@
                             <p>SR no: {{$lot->Sr_no}}</p>
                             <p>roll no: {{$lot->Roll_no}}</p>
                             <p>fabric type: {{$lot->Fabric_type}}</p>
+                            <p>Panna60: {{$lot->Panna60}}</p>
                             <p>Meter: {{$lot->Meter}}</p>
+                            <p>Sizes: {{$lot->size}}</p>
                             <p>Total: {{$lot->total}}</p>
 
                             <p>
@@ -118,6 +120,8 @@
                                 <p>Id: {{$jobber->id}}</p>
                                 <p>name: {{$jobber->name}}</p>
                                 <p>email: {{$jobber->email}}</p>
+                                <p>Phone number: {{$jobber->phone_number}}</p>
+                                <p>Role: {{$jobber->role->role}}</p>
                             </div>
                         </div>
                     @endforeach

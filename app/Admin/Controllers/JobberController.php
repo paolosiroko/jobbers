@@ -6,7 +6,7 @@ use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
-use App\Models\Roles;
+use App\Models\Role;
 use App\Models\User;
 
 class JobberController extends AdminController
@@ -75,7 +75,7 @@ class JobberController extends AdminController
         $form->email('email', __('mail'));
         $form->text('phone_number', __('phone_number'));
         $form->select('role_id', 'Role')
-                ->options(Roles::pluck('role', 'id'));
+                ->options(Role::pluck('role', 'id'));
         $form->password('password', __('password'));
         $form->display('created_at', __('Created At'));
         $form->display('updated_at', __('Updated At'));
